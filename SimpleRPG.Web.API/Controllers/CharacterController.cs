@@ -1,4 +1,5 @@
 ﻿  using Microsoft.AspNetCore.Mvc;
+using SimpleRPG.Web.API.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,11 +9,14 @@ namespace SimpleRPG.Web.API.Controllers
     [ApiController]
     public class CharacterController : ControllerBase
     {
+        private static Character demo = new();
+
+
         // GET: api/<CharacterController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public ActionResult<Character> Get()
         {
-            return new string[] { "value1", "value2" };
+            return Ok(demo); 
         }
 
         // GET api/<CharacterController>/5
