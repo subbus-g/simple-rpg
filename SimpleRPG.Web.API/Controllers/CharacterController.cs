@@ -9,14 +9,21 @@ namespace SimpleRPG.Web.API.Controllers
     [ApiController]
     public class CharacterController : ControllerBase
     {
-        private static Character demo = new();
+        private static List<Character> characters = new List<Character>
+        {
+            new Character(),
+            new Character
+            {
+                Name="Bahu"
+            }
+        };
 
 
         // GET: api/<CharacterController>
         [HttpGet]
-        public ActionResult<Character> Get()
+        public ActionResult<List<Character>> Get()
         {
-            return Ok(demo); 
+            return Ok(characters); 
         }
 
         // GET api/<CharacterController>/5
