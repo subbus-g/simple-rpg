@@ -14,7 +14,8 @@ namespace SimpleRPG.Web.API.Controllers
             new Character(),
             new Character
             {
-                Name="Bahu"
+                Name="Bahu",
+                Id=1
             }
         };
 
@@ -28,9 +29,9 @@ namespace SimpleRPG.Web.API.Controllers
 
         // GET api/<CharacterController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public ActionResult<Character> Get(int id)
         {
-            return "value";
+            return Ok(characters.FirstOrDefault(c => c.Id == id));
         }
 
         // POST api/<CharacterController>
