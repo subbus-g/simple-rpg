@@ -36,8 +36,10 @@ namespace SimpleRPG.Web.API.Controllers
 
         // POST api/<CharacterController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public ActionResult Post([FromBody] Character character)
         {
+            characters.Add(character);
+            return Ok();
         }
 
         // PUT api/<CharacterController>/5
