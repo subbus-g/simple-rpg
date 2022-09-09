@@ -1,4 +1,5 @@
-﻿using SimpleRPG.Web.API.Models;
+﻿using SimpleRPG.Web.API.DTOs.Character;
+using SimpleRPG.Web.API.Models;
 
 namespace SimpleRPG.Web.API.Services.CharacterService
 {
@@ -22,8 +23,18 @@ namespace SimpleRPG.Web.API.Services.CharacterService
         {
             return characters;
         }
-        public List<Character> AddCharacter(Character character)
+        public List<Character> AddCharacter(POSTCharacterDTO postCharacterDTO)
         {
+            Character character = new Character();
+            character.Id = 99;
+            character.Name=postCharacterDTO.Name; 
+            character.Strength=postCharacterDTO.Strength;
+            character.Class = postCharacterDTO.Class;
+            character.HitPoints = postCharacterDTO.HitPoints;
+            character.Defence = postCharacterDTO.Defence;
+            character.Intelligence = postCharacterDTO.Intelligence;
+
+            
             characters.Add(character);
             return characters;
         }

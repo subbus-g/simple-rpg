@@ -1,4 +1,5 @@
 ﻿  using Microsoft.AspNetCore.Mvc;
+using SimpleRPG.Web.API.DTOs.Character;
 using SimpleRPG.Web.API.Models;
 using SimpleRPG.Web.API.Services.CharacterService;
 
@@ -33,7 +34,7 @@ namespace SimpleRPG.Web.API.Controllers
 
         // POST api/<CharacterController>
         [HttpPost]
-        public ActionResult Post([FromBody] Character character)
+        public ActionResult Post([FromBody] POSTCharacterDTO character)
         {
            _characterService.AddCharacter(character);
             return Ok();

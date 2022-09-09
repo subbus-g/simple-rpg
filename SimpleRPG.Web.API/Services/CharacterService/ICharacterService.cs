@@ -1,4 +1,5 @@
-﻿using SimpleRPG.Web.API.Models;
+﻿using SimpleRPG.Web.API.DTOs.Character;
+using SimpleRPG.Web.API.Models;
 
 namespace SimpleRPG.Web.API.Services.CharacterService
 {
@@ -6,7 +7,7 @@ namespace SimpleRPG.Web.API.Services.CharacterService
     {
         List<Character> GetAllCharacters();
         Character GetCharacterById(int id);
-        List<Character> AddCharacter(Character character);
+        List<Character> AddCharacter(POSTCharacterDTO character);
 
     }
 }
