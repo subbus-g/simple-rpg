@@ -1,6 +1,8 @@
-﻿namespace SimpleRPG.Web.API.Models
+﻿using SimpleRPG.Web.API.Models;
+
+namespace SimpleRPG.Web.API.DTOs.Character
 {
-    public Character
+    public class GETCharacterDTO
     {
         public int Id { get; set; }
         public string Name { get; set; } = "Frodo";
@@ -9,7 +11,5 @@
         public int Defence { get; set; } = 10;
         public int Intelligence { get; set; } = 10;
         public CharacterClass Class { get; set; } = CharacterClass.Knight;
-
-
     }
 }
