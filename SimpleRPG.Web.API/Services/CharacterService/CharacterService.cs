@@ -27,16 +27,16 @@ namespace SimpleRPG.Web.API.Services.CharacterService
             return characters.FirstOrDefault(c => c.Id == id);
         }
 
-        List<GETCharacterDTO> ICharacterService.AddCharacter(POSTCharacterDTO character)
+        List<GETCharacterDTO> ICharacterService.AddCharacter(POSTCharacterDTO postCharacterDTO)
         {
-            //Character character = new Character();
-            //character.Id = 99;
-            //character.Name = postCharacterDTO.Name;
-            //character.Strength = postCharacterDTO.Strength;
-            //character.Class = postCharacterDTO.Class;
-            //character.HitPoints = postCharacterDTO.HitPoints;
-            //character.Defence = postCharacterDTO.Defence;
-            //character.Intelligence = postCharacterDTO.Intelligence;
+            GETCharacterDTO character = new();
+            character.Id = 999;
+            character.Name = postCharacterDTO.Name;
+            character.Strength = postCharacterDTO.Strength;
+            character.Class = postCharacterDTO.Class;
+            character.HitPoints = postCharacterDTO.HitPoints;
+            character.Defence = postCharacterDTO.Defence;
+            character.Intelligence = postCharacterDTO.Intelligence;
 
 
             characters.Add(character);

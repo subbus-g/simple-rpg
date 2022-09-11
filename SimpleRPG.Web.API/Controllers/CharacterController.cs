@@ -20,14 +20,14 @@ namespace SimpleRPG.Web.API.Controllers
 
         // GET: api/<CharacterController>
         [HttpGet]
-        public ActionResult<List<Character>> Get()
+        public ActionResult<List<GETCharacterDTO>> Get()
         {
             return Ok(_characterService.GetAllCharacters()); 
         }
 
         // GET api/<CharacterController>/5
         [HttpGet("{id}")]
-        public ActionResult<Character> Get(int id)
+        public ActionResult<GETCharacterDTO> Get(int id)
         {
             return Ok(_characterService.GetCharacterById(id));
         }
