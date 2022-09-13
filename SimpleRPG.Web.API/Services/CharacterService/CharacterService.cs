@@ -1,4 +1,5 @@
-﻿using SimpleRPG.Web.API.DTOs.Character;
+﻿using AutoMapper;
+using SimpleRPG.Web.API.DTOs.Character;
 using SimpleRPG.Web.API.Models;
 
 namespace SimpleRPG.Web.API.Services.CharacterService
@@ -14,8 +15,12 @@ namespace SimpleRPG.Web.API.Services.CharacterService
                 Id=1
             }
         };
+        private readonly IMapper _mapper;
 
-        
+        public CharacterService(IMapper mapper)
+        {
+            this._mapper = mapper;
+        }
         public List<GETCharacterDTO> GetAllCharacters()
         {
             return characters;
@@ -24,7 +29,9 @@ namespace SimpleRPG.Web.API.Services.CharacterService
 
         GETCharacterDTO ICharacterService.GetCharacterById(int id)
         {
-            return characters.FirstOrDefault(c => c.Id == id);
+            var character = characters.FirstOrDefault(c => c.Id == id);
+            return _mapper.Map<GETCharacterDTO>(character);
+            //return characters.FirstOrDefault(c => c.Id == id);
         }
 
         List<GETCharacterDTO> ICharacterService.AddCharacter(POSTCharacterDTO postCharacterDTO)
