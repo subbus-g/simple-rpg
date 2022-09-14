@@ -5,8 +5,8 @@ namespace SimpleRPG.Web.API.Services.CharacterService
 {
     public interface ICharacterService
     {
-        List<GETCharacterDTO> GetAllCharacters();
         GETCharacterDTO GetCharacterById(int id);
+        List<GETCharacterDTO> GetAllCharacters();
         List<GETCharacterDTO> AddCharacter(POSTCharacterDTO character);
 
     }

@@ -6,10 +6,10 @@ namespace SimpleRPG.Web.API.Services.CharacterService
 {
     public class CharacterService : ICharacterService
     {
-        private static List<GETCharacterDTO> characters = new List<GETCharacterDTO>
+        private static List<Character> characters = new List<Character>
         {
-            new GETCharacterDTO(),
-            new GETCharacterDTO
+            new Character(),
+            new Character
             {
                 Name="Bahu",
                 Id=1
@@ -17,13 +17,39 @@ namespace SimpleRPG.Web.API.Services.CharacterService
         };
         private readonly IMapper _mapper;
 
+
+
+        List<GETCharacterDTO> ICharacterService.AddCharacter(POSTCharacterDTO postCharacterDTO)
+        {
+            //GETCharacterDTO character = new();
+            //character.Id = 999;
+            //character.Name = postCharacterDTO.Name;
+            //character.Strength = postCharacterDTO.Strength;
+            //character.Class = postCharacterDTO.Class;
+            //character.HitPoints = postCharacterDTO.HitPoints;
+            //character.Defence = postCharacterDTO.Defence;
+            //character.Intelligence = postCharacterDTO.Intelligence;
+
+
+            //characters.Add(character);
+            //return characters;
+
+            //converting from POSTCharacterDTO to Character
+            characters.Add(_mapper.Map<Character>(postCharacterDTO));
+
+            //converting each of character in characters to  GETCharacterDTO and returning the list
+            return characters.Select(c => _mapper.Map<GETCharacterDTO>(c)).ToList();
+
+        }
+
         public CharacterService(IMapper mapper)
         {
             this._mapper = mapper;
         }
+
         public List<GETCharacterDTO> GetAllCharacters()
         {
-            return characters;
+            return characters.Select(c => _mapper.Map<GETCharacterDTO>(c)).ToList();
         }
        
 
@@ -33,21 +59,7 @@ namespace SimpleRPG.Web.API.Services.CharacterService
             return _mapper.Map<GETCharacterDTO>(character);
             //return characters.FirstOrDefault(c => c.Id == id);
         }
-
-        List<GETCharacterDTO> ICharacterService.AddCharacter(POSTCharacterDTO postCharacterDTO)
-        {
-            GETCharacterDTO character = new();
-            character.Id = 999;
-            character.Name = postCharacterDTO.Name;
-            character.Strength = postCharacterDTO.Strength;
-            character.Class = postCharacterDTO.Class;
-            character.HitPoints = postCharacterDTO.HitPoints;
-            character.Defence = postCharacterDTO.Defence;
-            character.Intelligence = postCharacterDTO.Intelligence;
-
-
-            characters.Add(character);
-            return characters;
-        }
+          
+     
     }
 }
