@@ -34,8 +34,10 @@ namespace SimpleRPG.Web.API.Services.CharacterService
             //characters.Add(character);
             //return characters;
 
+            Character character = _mapper.Map<Character>(postCharacterDTO);
+            character.Id=characters.Max(c=> c.Id) + 1;
             //converting from POSTCharacterDTO to Character
-            characters.Add(_mapper.Map<Character>(postCharacterDTO));
+            characters.Add(character);
 
             //converting each of character in characters to  GETCharacterDTO and returning the list
             return characters.Select(c => _mapper.Map<GETCharacterDTO>(c)).ToList();
