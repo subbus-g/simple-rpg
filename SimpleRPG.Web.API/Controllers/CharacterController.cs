@@ -40,11 +40,21 @@ namespace SimpleRPG.Web.API.Controllers
             return Ok();
         }
 
+        //// PUT api/<CharacterController>/5
+        //[HttpPut("{id}")]
+        //public void Put(int id, [FromBody] string value)
+        //{
+
+        //}
+
         // PUT api/<CharacterController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public ActionResult Put([FromBody] PUTCharacterDTO putCharacterDTO)
         {
+            _characterService.UpdateCharacter(putCharacterDTO); 
+            return Ok();
         }
+
 
         // DELETE api/<CharacterController>/5
         [HttpDelete("{id}")]

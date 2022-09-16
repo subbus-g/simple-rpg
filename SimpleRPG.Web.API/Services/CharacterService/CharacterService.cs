@@ -61,7 +61,17 @@ namespace SimpleRPG.Web.API.Services.CharacterService
             return _mapper.Map<GETCharacterDTO>(character);
             //return characters.FirstOrDefault(c => c.Id == id);
         }
-          
-     
+
+        GETCharacterDTO ICharacterService.UpdateCharacter(PUTCharacterDTO updatedCharacter)
+        {
+            var character = characters.FirstOrDefault(c => c.Id == updatedCharacter.Id);
+            character.Name = updatedCharacter.Name;
+            character.HitPoints = updatedCharacter.HitPoints; 
+            character.Strength  = updatedCharacter.Strength;
+            character.Defence=updatedCharacter.Defence;
+            character.Intelligence=updatedCharacter.Intelligence;
+            character.Class=updatedCharacter.Class;
+            return _mapper.Map<GETCharacterDTO>(character);
+        }
     }
 }

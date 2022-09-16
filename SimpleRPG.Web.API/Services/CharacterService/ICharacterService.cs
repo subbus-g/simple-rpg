@@ -8,6 +8,8 @@ namespace SimpleRPG.Web.API.Services.CharacterService
         GETCharacterDTO GetCharacterById(int id);
         List<GETCharacterDTO> GetAllCharacters();
         List<GETCharacterDTO> AddCharacter(POSTCharacterDTO character);
+        GETCharacterDTO UpdateCharacter(PUTCharacterDTO updatedCharacter);
+
 
     }
 }
