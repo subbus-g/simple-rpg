@@ -73,5 +73,18 @@ namespace SimpleRPG.Web.API.Services.CharacterService
             character.Class=updatedCharacter.Class;
             return _mapper.Map<GETCharacterDTO>(character);
         }
+
+        void ICharacterService.DeleteCharacter(int id)
+        {
+            try
+            {
+                var characterToDelete = characters.First(c => c.Id == id);
+                characters.Remove(characterToDelete);
+            }
+            catch(Exception exp)
+            {
+                throw exp;
+            }
+        }
     }
 }
